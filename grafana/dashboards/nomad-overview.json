@@ -85,7 +85,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "sum(nomad_client_allocated_cpu)+sum(nomad_client_unallocated_cpu) * 1000000",
+          "expr": "(sum(nomad_client_allocated_cpu)+sum(nomad_client_unallocated_cpu)) * 1000000",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
