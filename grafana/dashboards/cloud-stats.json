@@ -99,7 +99,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "\nselect date_trunc('day', timestamp) as \"time\", count(distinct api_key)\nfrom sockets\ngroup by date_trunc('day', timestamp)\norder by date_trunc('day', timestamp)\n",
+          "rawSql": "\nselect date_trunc('day', timestamp) as \"time\", count(distinct project_id)\nfrom sockets\ngroup by 1\norder by 1\n",
           "refId": "A",
           "select": [
             [
@@ -199,7 +199,7 @@
           "group": [],
           "metricColumn": "none",
           "rawQuery": true,
-          "rawSql": "\nselect date_trunc('day', timestamp) as \"time\", count(api_key)\nfrom sockets\ngroup by date_trunc('day', timestamp)\norder by date_trunc('day', timestamp)",
+          "rawSql": "\nselect date_trunc('day', timestamp) as \"time\", count(project_id)\nfrom sockets\ngroup by 1\norder by 1",
           "refId": "A",
           "select": [
             [
@@ -636,12 +636,12 @@
     "list": []
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-14d",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Cloud Stats",
   "uid": "qJP0bTdnk",
-  "version": 11
+  "version": 1
 }
