@@ -20,15 +20,14 @@
   },
   "description": "Tracks the adoption and stats of v1 and v2 services side by side",
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
-  "iteration": 1636987704404,
+  "id": 1,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -41,7 +40,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "Percentage of V1 (left) and V2 (right) connections, over the current timescale",
       "fieldConfig": {
         "defaults": {
@@ -101,7 +99,7 @@
         "text": {},
         "textMode": "value"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
           "exemplar": true,
@@ -125,7 +123,6 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -138,7 +135,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "Total active V1 connections smoothed over 5 minute intervals",
       "fieldConfig": {
         "defaults": {
@@ -154,7 +150,7 @@
             "fillOpacity": 0,
             "gradientMode": "none",
             "hideFrom": {
-              "legend": false,
+              "legend":false,
               "tooltip": false,
               "viz": false
             },
@@ -219,11 +215,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "max_over_time( sum(haproxy_backend_current_sessions{proxy=~\"consul-bridge.*\"})[$__rate_interval:] )",
           "interval": "",
@@ -235,7 +236,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Total active V2 connections smoothed over 5 minute intervals",
       "fieldConfig": {
         "defaults": {
@@ -316,11 +316,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "max_over_time( sum(haproxy_backend_current_sessions{proxy=~\"consul-api-proxy.*\"})[$__rate_interval:] )",
           "interval": "",
@@ -332,7 +337,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Broken down by status code",
       "fieldConfig": {
         "defaults": {
@@ -400,11 +404,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (code) (round(rate(haproxy_backend_http_responses_total{proxy=~\"consul-bridge.*\"}[1m])))",
           "interval": "",
@@ -416,7 +425,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Broken down by status code",
       "fieldConfig": {
         "defaults": {
@@ -480,11 +488,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (code) (rate(haproxy_backend_http_responses_total{proxy=~\"consul-api-proxy.*\"}[1m]))",
           "interval": "",
@@ -497,7 +510,6 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -510,7 +522,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "Percent of CPU used out of total available on Nomad clients",
       "fieldConfig": {
         "defaults": {
@@ -577,12 +588,17 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.6",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_cpu_total_percent{exported_job=~\"bridge\", task!~\"connect-proxy.*\"}) / scalar(count(count(nomad_client_allocs_cpu_total_percent{instance=~\".*\"}) by (instance))) / (8 * .80)",
           "hide": false,
@@ -595,7 +611,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Percent of total available memory used per task",
       "fieldConfig": {
         "defaults": {
@@ -692,11 +707,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_memory_usage{exported_job=~\"bridge\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -705,6 +725,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_memory_usage{exported_job=~\"bridge\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -713,6 +737,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_memory_allocated{exported_job=~\"bridge\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -726,7 +754,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Percent of CPU used out of total available on Nomad clients",
       "fieldConfig": {
         "defaults": {
@@ -793,12 +820,17 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.6",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_cpu_total_percent{exported_job=~\"api-proxy|relay|waku\", task!~\"connect-proxy.*\"}) / scalar(count(count(nomad_client_allocs_cpu_total_percent{instance=~\".*\"}) by (instance))) / (8 * .80)",
           "hide": false,
@@ -811,7 +843,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Percent of total available memory used per task",
       "fieldConfig": {
         "defaults": {
@@ -908,11 +939,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_memory_usage{exported_job=~\"api-proxy|relay|waku\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -921,6 +957,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_memory_usage{exported_job=~\"api-proxy|relay|waku\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -929,6 +969,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_memory_allocated{exported_job=~\"api-proxy|relay|waku\", task!~\"connect-proxy.*\"}) / scalar(sum(nomad_client_host_memory_total))",
           "hide": false,
@@ -943,7 +987,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 30,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -957,5 +1001,6 @@
   "timezone": "",
   "title": "Service Adoption Tracker",
   "uid": "vwPOtf57z",
-  "version": 5
-}
+  "version": 1,
+  "weekStart": ""
+} 
