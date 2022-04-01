@@ -19,13 +19,17 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 1,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "datasource": "PostgreSQL Api Proxy",
+      "datasource": {
+        "type": "postgres",
+        "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -90,11 +94,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -125,7 +134,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "PostgreSQL Api Proxy",
+      "datasource": {
+        "type": "postgres",
+        "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -190,11 +202,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -227,7 +244,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "Cloud Postgres",
+      "datasource": {
+        "type": "postgres",
+        "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -292,11 +312,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -327,7 +352,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "Cloud Postgres",
+      "datasource": {
+        "type": "postgres",
+        "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -392,11 +420,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -427,7 +460,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "Cloud Postgres",
+      "datasource": {
+        "type": "postgres",
+        "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -492,11 +528,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "3c903dc3-f8fc-51b3-8df3-d23d108fd058"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -527,7 +568,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "PostgreSQL Api Proxy",
+      "datasource": {
+        "type": "postgres",
+        "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -592,11 +636,16 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "postgres",
+            "uid": "56904635-6405-5568-b326-b1e8fac99e63"
+          },
           "format": "time_series",
           "group": [],
           "metricColumn": "none",
@@ -629,7 +678,7 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 30,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -643,5 +692,6 @@
   "timezone": "",
   "title": "Cloud Stats",
   "uid": "qJP0bTdnk",
-  "version": 1
+  "version": 2,
+  "weekStart": ""
 }
