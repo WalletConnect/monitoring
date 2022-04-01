@@ -19,15 +19,15 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
-  "iteration": 1637680039949,
+  "id": 4,
+  "iteration": 1648803112351,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -40,7 +40,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "Currently active",
       "fieldConfig": {
         "defaults": {
@@ -88,9 +87,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_nomad_job_summary_running{exported_job=~\"[[service]]\"})",
           "hide": false,
@@ -103,7 +106,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
       "description": "In startup",
       "fieldConfig": {
         "defaults": {
@@ -151,9 +153,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_nomad_job_summary_starting{exported_job=~\"[[service]]\"})",
           "hide": false,
@@ -166,7 +172,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
       "description": "Pending allocations",
       "fieldConfig": {
         "defaults": {
@@ -214,9 +219,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_nomad_job_summary_queued{exported_job=~\"[[service]]\"})",
           "hide": false,
@@ -229,7 +238,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
       "description": "Allocations which experienced a failure in the current time range",
       "fieldConfig": {
         "defaults": {
@@ -276,9 +284,13 @@
         "showUnfilled": false,
         "text": {}
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task_group) (delta(nomad_nomad_job_summary_failed{exported_job=~\"[[service]]\"}[$__rate_interval]) > 0)",
           "hide": false,
@@ -291,7 +303,6 @@
       "type": "bargauge"
     },
     {
-      "datasource": null,
       "description": "Allocations which were lost by Nomad",
       "fieldConfig": {
         "defaults": {
@@ -338,9 +349,13 @@
         "showUnfilled": false,
         "text": {}
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task_group) (delta(nomad_nomad_job_summary_lost{exported_job=~\"[[service]]\"}[$__rate_interval]) > 0)",
           "hide": false,
@@ -354,7 +369,6 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -367,7 +381,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "CPU cycles consumed per task",
       "fieldConfig": {
         "defaults": {
@@ -469,11 +482,16 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_cpu_total_ticks{exported_job=~\"[[service]]\", task!~\"connect-proxy.*\"}) * 1000000",
           "interval": "",
@@ -481,6 +499,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_cpu_allocated{exported_job=~\"[[service]]\"}) * 1000000",
           "hide": false,
@@ -493,7 +515,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -589,11 +610,16 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (task) (nomad_client_allocs_memory_usage{exported_job=~\"[[service]]\", task!~\"connect-proxy.*\"})",
           "interval": "",
@@ -601,6 +627,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocs_memory_allocated{exported_job=~\"[[service]]\"})",
           "hide": false,
@@ -614,7 +644,6 @@
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -627,7 +656,6 @@
       "type": "row"
     },
     {
-      "datasource": null,
       "description": "Per ingress status of the service",
       "fieldConfig": {
         "defaults": {
@@ -673,10 +701,14 @@
         "showUnfilled": false,
         "text": {}
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
-          "exemplar": true,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
+          "exemplar": false,
           "expr": "sort(sum by (proxy) (haproxy_backend_status{proxy=~\"consul-[[service]]\\\\d+\"}) - ignoring (state) sum by (proxy) (haproxy_backend_status{proxy=~\"consul-[[service]]\\\\d+\", state=\"DOWN\"}))",
           "instant": true,
           "interval": "",
@@ -697,7 +729,6 @@
       "type": "bargauge"
     },
     {
-      "datasource": null,
       "description": "Total ingress traffic known to the public ingress",
       "fieldConfig": {
         "defaults": {
@@ -752,9 +783,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(haproxy_backend_bytes_in_total{proxy=~\"consul-[[service]]\\\\d+\"})",
           "interval": "",
@@ -766,7 +801,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
       "description": "Total egress traffic known to the public ingress",
       "fieldConfig": {
         "defaults": {
@@ -821,9 +855,13 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "8.1.6",
+      "pluginVersion": "8.4.5",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(haproxy_backend_bytes_out_total{proxy=~\"consul-[[service]]\\\\d+\"})",
           "interval": "",
@@ -835,7 +873,6 @@
       "type": "stat"
     },
     {
-      "datasource": null,
       "description": "All responses sent by the service",
       "fieldConfig": {
         "defaults": {
@@ -907,12 +944,17 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.1.6",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (code) (ceil(rate(haproxy_backend_http_responses_total{proxy=~\"consul-[[service]]\\\\d+\"}[5m])))",
           "interval": "",
@@ -924,7 +966,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Current active connections",
       "fieldConfig": {
         "defaults": {
@@ -996,11 +1037,16 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "max_over_time( sum(haproxy_backend_current_sessions{proxy=~\"consul-[[service]]\\\\d+\"})[$__rate_interval:] )",
           "interval": "",
@@ -1012,7 +1058,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Various network timing averages",
       "fieldConfig": {
         "defaults": {
@@ -1085,11 +1130,16 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "avg(haproxy_backend_connect_time_average_seconds{proxy=~\"consul-[[service]]\\\\d+\"})",
           "interval": "",
@@ -1097,6 +1147,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "avg(haproxy_backend_response_time_average_seconds{proxy=~\"consul-[[service]]\\\\d+\"})",
           "hide": false,
@@ -1105,6 +1159,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "avg(haproxy_backend_queue_time_average_seconds{proxy=~\"consul-[[service]]\\\\d+\"})",
           "hide": false,
@@ -1113,6 +1171,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "avg(haproxy_backend_total_time_average_seconds{proxy=~\"consul-[[service]]\\\\d+\"})",
           "hide": false,
@@ -1125,7 +1187,6 @@
       "type": "timeseries"
     },
     {
-      "datasource": null,
       "description": "Total amount of downtime in seconds over the current timescale, rounded",
       "fieldConfig": {
         "defaults": {
@@ -1201,11 +1262,16 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum by (proxy) (round(increase(haproxy_backend_downtime_seconds_total{proxy=~\"consul-[[service]]\\\\d+\"}[$__rate_interval])))",
           "interval": "",
@@ -1226,22 +1292,19 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 30,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": true,
-          "text": "grafana",
-          "value": "grafana"
+          "text": "api-proxy",
+          "value": "api-proxy"
         },
-        "datasource": null,
         "definition": "label_values(nomad_client_allocs_cpu_total_percent, exported_job)",
         "description": "",
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Service",
@@ -1268,5 +1331,6 @@
   "timezone": "",
   "title": "Service Stats",
   "uid": "PLnVjVt7k",
-  "version": 2
+  "version": 1,
+  "weekStart": ""
 }
