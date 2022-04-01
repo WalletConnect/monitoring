@@ -1,5 +1,5 @@
 {
- "annotations": {
+  "annotations": {
     "list": [
       {
         "builtIn": 1,
@@ -20,15 +20,16 @@
   },
   "description": "Nomad Cluster stats",
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": 6278,
   "graphTooltip": 1,
-  "id": 4,
-  "iteration": 1632299678124,
+  "id": 3,
+  "iteration": 1648802777454,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -41,49 +42,84 @@
       "type": "row"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "Hertz",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "rothz"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 15,
         "x": 0,
         "y": 1
       },
-      "hiddenSeries": false,
       "id": 49,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.1.5",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
+      "pluginVersion": "8.4.5",
       "repeatDirection": "v",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "(sum(nomad_client_allocated_cpu)+sum(nomad_client_unallocated_cpu)) * 1000000",
           "format": "time_series",
@@ -93,6 +129,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_allocated_cpu) * 1000000",
           "format": "time_series",
@@ -102,6 +142,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_unallocated_cpu) * 1000000",
           "format": "time_series",
@@ -111,96 +155,90 @@
           "refId": "A"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "CPU",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:208",
-          "decimals": null,
-          "format": "rothz",
-          "label": "Hertz",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:209",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
       "description": "Memory usage across all clients",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 7,
         "x": 0,
         "y": 9
       },
-      "hiddenSeries": false,
       "id": 11,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.1.5",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
+      "pluginVersion": "8.4.5",
       "repeat": "host",
       "repeatDirection": "v",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_memory_total)",
           "format": "time_series",
@@ -210,6 +248,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_memory_free)",
           "format": "time_series",
@@ -220,6 +262,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_memory_used)",
           "format": "time_series",
@@ -229,6 +275,10 @@
           "refId": "C"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_memory_available)",
           "format": "time_series",
@@ -238,94 +288,91 @@
           "refId": "D"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Memory",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:261",
-          "format": "decbytes",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:262",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "Prometheus",
-      "fill": 1,
-      "fillGradient": 0,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 1000000000,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 8,
         "w": 8,
         "x": 7,
         "y": 9
       },
-      "hiddenSeries": false,
       "id": 13,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "8.1.5",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
+      "pluginVersion": "8.4.5",
       "repeat": "host",
       "repeatDirection": "v",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_disk_size)",
           "format": "time_series",
@@ -335,6 +382,10 @@
           "refId": "B"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_disk_available)",
           "format": "time_series",
@@ -344,6 +395,10 @@
           "refId": "A"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "sum(nomad_client_host_disk_size) - sum(nomad_client_host_disk_available)",
           "hide": false,
@@ -352,53 +407,11 @@
           "refId": "C"
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "Disk Usage",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:378",
-          "decimals": 0,
-          "format": "decbytes",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": "1000000000",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:379",
-          "format": "decbytes",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -411,8 +424,6 @@
       "type": "row"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -455,7 +466,6 @@
         "y": 18
       },
       "id": 33,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -471,11 +481,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "8.4.5",
       "repeat": "host",
       "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "nomad_client_unallocated_cpu{datacenter=~\"$datacenter\"}/(nomad_client_unallocated_cpu{datacenter=~\"$datacenter\"}+nomad_client_allocated_cpu{datacenter=~\"$datacenter\"})",
           "format": "time_series",
@@ -489,8 +503,6 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -533,7 +545,6 @@
         "y": 18
       },
       "id": 40,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -549,11 +560,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "8.4.5",
       "repeat": "host",
       "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "nomad_client_unallocated_memory{datacenter=~\"$datacenter\"}/(nomad_client_unallocated_memory{datacenter=~\"$datacenter\"}+nomad_client_allocated_memory{datacenter=~\"$datacenter\"})",
           "format": "time_series",
@@ -567,8 +582,6 @@
       "type": "gauge"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -612,7 +625,6 @@
         "y": 18
       },
       "id": 48,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -628,11 +640,15 @@
         "showThresholdMarkers": true,
         "text": {}
       },
-      "pluginVersion": "8.1.5",
+      "pluginVersion": "8.4.5",
       "repeat": "host",
       "repeatDirection": "v",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "35b814a4-a789-55d1-8707-1429041c9f53"
+          },
           "exemplar": true,
           "expr": "nomad_client_unallocated_disk{datacenter=~\"$datacenter\"}/(nomad_client_unallocated_disk{datacenter=~\"$datacenter\"}+nomad_client_allocated_disk{datacenter=~\"$datacenter\"})",
           "format": "time_series",
@@ -647,7 +663,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 30,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [
     "nomad",
@@ -656,16 +672,12 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": false,
           "text": "eu-central-1a",
           "value": "eu-central-1a"
         },
-        "datasource": "Prometheus",
         "definition": "",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "DC",
@@ -719,5 +731,6 @@
   "timezone": "",
   "title": "Nomad Overview",
   "uid": "nomad-overview",
-  "version": 1
-} 
+  "version": 3,
+  "weekStart": ""
+}
